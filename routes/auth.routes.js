@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const {check, validationResult} = require('express-validator')
 const User = require('../models/User')
 const router =  Router()
+const Balance = require('../models/Balance')
 
 // /api/auth/register
 router.post(
@@ -34,9 +35,20 @@ router.post(
         }
 
         const hashedPassword = await bcrypt.hash(password, 12)
-        const user = new User({email, password: hashedPassword})
 
-        await user.save()
+        if (email=='admin@admin.ru'){
+            const user = new User({email, password: hashedPassword, money: 0, isCasinoAccount: true})
+            await user.save()
+        }
+        else{
+        const user = new User({email, password: hashedPassword, money: 0})
+            await user.save()
+        }
+
+
+
+
+
 
         res.status(201).json({message: 'user added'})
 

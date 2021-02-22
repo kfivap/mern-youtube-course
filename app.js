@@ -12,6 +12,12 @@ app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/link', require('./routes/link.routes'))
 app.use('/t', require('./routes/redirect.routes'))
 
+app.use('/test', require('./routes/test.routes'))
+app.use('/api/casino', require('./routes/casino.routes'))
+app.use('/api/balance', require('./routes/balance.routes'))
+app.use('/api/coefficient', require('./routes/coefficient.routes'))
+
+
 if (process.env.NODE_ENV === 'production'){
     app.use('/',  expess.static(path.join(__dirname, 'client', 'build')))
 

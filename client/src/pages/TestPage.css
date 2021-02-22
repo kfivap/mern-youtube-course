@@ -1,0 +1,28 @@
+.computing {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    display: flex;
+
+
+    align-items: center;
+    justify-content: center;
+}
+
+.numbers {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    display: flex;
+    /*background-color: #0d47a1;*/
+    flex-wrap: wrap;
+    padding-left: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.numbers button {
+    flex: 0 0 120px;
+    font-size: 20px;
+}
+
