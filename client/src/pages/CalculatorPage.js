@@ -2,7 +2,7 @@ import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {useHttp} from "../hooks/http.hook";
 import {AuthContext} from "../context/AuthContext";
 import {Loader} from "../components/Loader";
-import './TestPage.css'
+import './CalculatorPage.css'
 
 export const TestPage = () =>{
 
@@ -11,7 +11,7 @@ export const TestPage = () =>{
     const {token} = useContext(AuthContext)
     const  fetchLinks  = useCallback( async () => {
         try{
-            const fetched = await  request('/test', 'GET', null, {Authorization: `Bearer ${token}`})
+            const fetched = await  request('/api/calculator', 'GET', null, {Authorization: `Bearer ${token}`})
             //setLinks(fetched)
             setTest(JSON.stringify(fetched))
         } catch (e) {
@@ -49,7 +49,7 @@ export const TestPage = () =>{
             const compute = e.target.innerHTML[0]
             setCompute(compute)
             //console.log(form)
-            const data = await request('/test', "POST", {...form, compute})
+            const data = await request('/api/calculator', "POST", {...form, compute})
 
 
             if (data.isn){
